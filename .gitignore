@@ -40,3 +40,5 @@ chroma_db/
 *.tmp
 *.orig
 *.rej
+
+notes.txt
