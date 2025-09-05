@@ -37,22 +37,40 @@ Example implementation for multi-document search:
 - Provides semantic search functionality
 - Demonstrates document processing pipeline
 
+## Setup and Installation
+
+### 1. Create Virtual Environment
+
+```bash
+# Windows (PowerShell)
+python -m venv vectordemo
+vectordemo\Scripts\Activate.ps1
+
+# Windows (Command Prompt)
+python -m venv vectordemo
+vectordemo\Scripts\activate.bat
+
+# macOS/Linux
+python -m venv vectordemo
+source vectordemo/bin/activate
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Quick Start
 
-1. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Run the constitution query system:
+1. Run the constitution query system:
 
    ```bash
    cd src
    python constitution_query_system.py
    ```
 
-3. Or use individual components:
+2. Or use individual components:
    ```bash
    cd src
    python pdf_to_chroma.py
@@ -71,7 +89,3 @@ Example implementation for multi-document search:
 - ChromaDB - Vector database for semantic search
 - Langchain - Document processing and text splitting
 - PyPDF2/pypdf - PDF document loading
-
-## License
-
-MIT
