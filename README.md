@@ -1,37 +1,76 @@
-# vectordb-rag-example-app
+# VectorDB RAG Example App
 
-This project is designed to create sample RAG (Retrieval-Augmented Generation) pipelines using Chroma VectorDB with Python.
+A simple PDF document processing and search system using ChromaDB for semantic search capabilities.
 
-## Features
+## Overview
 
-- Chroma VectorDB integration
-- Example RAG architectures
-- Easily extensible and customizable structure
+This project demonstrates how to:
 
-## Installation
+- Process PDF documents and split them into chunks
+- Store document chunks in ChromaDB with metadata
+- Perform semantic search on stored documents
+- Handle multi-document collections safely
 
-1. Make sure Python 3.8+ is installed.
-2. Install the required packages:
+## Main Classes
+
+### `PDFToChromaProcessor`
+
+Handles PDF processing and ChromaDB integration:
+
+- Loads PDF documents using Langchain
+- Splits documents into chunks with configurable size/overlap
+- Stores processed chunks in ChromaDB collections
+
+### `ChromaDBManager`
+
+Manages ChromaDB operations:
+
+- Creates and manages collections
+- Adds documents with metadata
+- Performs semantic search queries
+
+### `ConstitutionQuerySystem`
+
+Example implementation for multi-document search:
+
+- Sets up constitution documents (UK & US)
+- Provides semantic search functionality
+- Demonstrates document processing pipeline
+
+## Quick Start
+
+1. Install dependencies:
+
    ```bash
    pip install -r requirements.txt
    ```
-3. Configure Chroma VectorDB settings as needed.
 
-## Usage
+2. Run the constitution query system:
 
-- Install dependencies (see Installation) then run a basic local Chroma example:
+   ```bash
+   cd src
+   python constitution_query_system.py
+   ```
 
-  ```bash
-  python src/basic_chroma_example.py
-  ```
+3. Or use individual components:
+   ```bash
+   cd src
+   python pdf_to_chroma.py
+   ```
 
-  A local persistent database will be created under `chroma_db/` (ignored by git).
+## Project Structure
 
-- You can modify `src/basic_chroma_example.py` to add more documents or experiment with queries.
+- `src/pdf_to_chroma.py` - PDF processing and ChromaDB integration
+- `src/chroma_manager.py` - ChromaDB collection management
+- `src/constitution_query_system.py` - Example multi-document system
+- `docs/` - Sample PDF documents
+- `chroma_db/` - ChromaDB persistent storage (auto-created)
 
-## Contributing
+## Dependencies
 
-To contribute, please submit a pull request.
+- ChromaDB - Vector database for semantic search
+- Langchain - Document processing and text splitting
+- PyPDF2/pypdf - PDF document loading
 
 ## License
 
