@@ -42,9 +42,6 @@ Example implementation for multi-document search:
 ### 1. Create Virtual Environment
 
 ```bash
-# Windows (PowerShell)
-python -m venv vectordemo
-vectordemo\Scripts\Activate.ps1
 
 # Windows (Command Prompt)
 python -m venv vectordemo
@@ -83,9 +80,3 @@ pip install -r requirements.txt
 - `src/constitution_query_system.py` - Example multi-document system
 - `docs/` - Sample PDF documents
 - `chroma_db/` - ChromaDB persistent storage (auto-created)
-
-## Dependencies
-
-- ChromaDB - Vector database for semantic search
-- Langchain - Document processing and text splitting
-- PyPDF2/pypdf - PDF document loading
