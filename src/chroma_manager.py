@@ -47,7 +47,7 @@ class ChromaDBManager:
                 metadata={"hnsw:space": "cosine"}
             )
             print(f"[Info] Created new collection '{collection_name}'")
-        except ValueError:
+        except Exception:
             # Collection already exists
             collection = self.client.get_collection(name=collection_name)
             print(f"[Info] Using existing collection '{collection_name}'")
