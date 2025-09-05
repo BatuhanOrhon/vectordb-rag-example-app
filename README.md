@@ -1,30 +1,82 @@
-# vectordb-rag-example-app
+# VectorDB RAG Example App
 
-This project is designed to create sample RAG (Retrieval-Augmented Generation) pipelines using Chroma VectorDB with Python.
+A simple PDF document processing and search system using ChromaDB for semantic search capabilities.
 
-## Features
+## Overview
 
-- Chroma VectorDB integration
-- Example RAG architectures
-- Easily extensible and customizable structure
+This project demonstrates how to:
 
-## Installation
+- Process PDF documents and split them into chunks
+- Store document chunks in ChromaDB with metadata
+- Perform semantic search on stored documents
+- Handle multi-document collections safely
 
-1. Make sure Python 3.8+ is installed.
-2. Install the required packages:
+## Main Classes
+
+### `PDFToChromaProcessor`
+
+Handles PDF processing and ChromaDB integration:
+
+- Loads PDF documents using Langchain
+- Splits documents into chunks with configurable size/overlap
+- Stores processed chunks in ChromaDB collections
+
+### `ChromaDBManager`
+
+Manages ChromaDB operations:
+
+- Creates and manages collections
+- Adds documents with metadata
+- Performs semantic search queries
+
+### `ConstitutionQuerySystem`
+
+Example implementation for multi-document search:
+
+- Sets up constitution documents (UK & US)
+- Provides semantic search functionality
+- Demonstrates document processing pipeline
+
+## Setup and Installation
+
+### 1. Create Virtual Environment
+
+```bash
+
+# Windows (Command Prompt)
+python -m venv vectordemo
+vectordemo\Scripts\activate.bat
+
+# macOS/Linux
+python -m venv vectordemo
+source vectordemo/bin/activate
+```
+
+### 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## Quick Start
+
+1. Run the constitution query system:
+
    ```bash
-   pip install -r requirements.txt
+   cd src
+   python constitution_query_system.py
    ```
-3. Configure Chroma VectorDB settings as needed.
 
-## Usage
+2. Or use individual components:
+   ```bash
+   cd src
+   python pdf_to_chroma.py
+   ```
 
-- Review and run the relevant Python files to execute sample RAG pipelines.
+## Project Structure
 
-## Contributing
-
-To contribute, please submit a pull request.
-
-## License
-
-MIT
+- `src/pdf_to_chroma.py` - PDF processing and ChromaDB integration
+- `src/chroma_manager.py` - ChromaDB collection management
+- `src/constitution_query_system.py` - Example multi-document system
+- `docs/` - Sample PDF documents
+- `chroma_db/` - ChromaDB persistent storage (auto-created)
